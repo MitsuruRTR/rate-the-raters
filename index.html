@@ -264,6 +264,21 @@
   }
   .lang-btn:focus-visible { outline: 2px solid var(--stamp); outline-offset: 2px; }
 
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+    color: var(--ink-muted);
+    background: var(--paper-tab-inactive);
+    border: 1px solid var(--rule-strong);
+    text-decoration: none;
+  }
+  .social-link:hover { color: var(--ink); }
+  .social-link:focus-visible { outline: 2px solid var(--stamp); outline-offset: 2px; }
+
   /* ---------- Archive search ---------- */
   .archive-search {
     display: flex;
@@ -674,12 +689,17 @@
         <span>CASE FILE ARCHIVE — VOL. 01</span>
         <span style="color:var(--stamp);">最終更新: 2026-09-18</span>
       </span>
-      <div class="lang-select" role="group" aria-label="表示言語の切り替え">
-        <a class="lang-btn" href="/en/" aria-pressed="false">EN</a>
-        <a class="lang-btn" href="/" aria-pressed="true">JA</a>
-        <a class="lang-btn" href="/zh/" aria-pressed="false">ZH</a>
-        <a class="lang-btn" href="/id/" aria-pressed="false">ID</a>
-        <a class="lang-btn" href="/fr/" aria-pressed="false">FR</a>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <a href="https://x.com/ratetheraters" target="_blank" rel="noopener" class="social-link" aria-label="X（旧Twitter）" title="X（旧Twitter）">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <div class="lang-select" role="group" aria-label="表示言語の切り替え">
+          <a class="lang-btn" href="/en/" aria-pressed="false">EN</a>
+          <a class="lang-btn" href="/" aria-pressed="true">JA</a>
+          <a class="lang-btn" href="/zh/" aria-pressed="false">ZH</a>
+          <a class="lang-btn" href="/id/" aria-pressed="false">ID</a>
+          <a class="lang-btn" href="/fr/" aria-pressed="false">FR</a>
+        </div>
       </div>
     </div>
     <h1>Rate The RATERS</h1>
