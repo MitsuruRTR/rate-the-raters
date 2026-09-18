@@ -421,6 +421,24 @@
     padding-bottom: 20px;
     border-bottom: 1px solid var(--rule);
   }
+  .site-visit-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 12px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--stamp);
+    text-decoration: none;
+    width: fit-content;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+  }
+  .site-visit-link:hover { opacity: 0.8; }
+  .site-visit-link:focus-visible { outline: 2px solid var(--stamp); outline-offset: 2px; }
+
   .dossier-total {
     text-align: right;
     font-family: var(--font-mono);
@@ -927,6 +945,7 @@
         <span class="case-no" id="dossier-case-no"></span>
         <h2 class="section-title" style="margin-top:6px;" id="dossier-name"></h2>
         <span class="chip critical" id="dossier-chip"></span>
+        <a class="site-visit-link" id="dossier-site-link" href="#" target="_blank" rel="noopener nofollow">查看被审核网站 ↗</a>
       </div>
       <div class="dossier-total">
         <div class="num" id="dossier-total"></div>
@@ -1204,6 +1223,8 @@
     const chip = document.getElementById('dossier-chip');
     chip.className = 'chip ' + d.status;
     chip.textContent = d.statusLabel;
+
+    document.getElementById('dossier-site-link').href = d.siteUrl;
 
     const total = d.scores.reduce((a, b) => a + b, 0);
     document.getElementById('dossier-total').innerHTML = `${total}<span style="font-size:16px;font-weight:400;"> / 60</span>`;

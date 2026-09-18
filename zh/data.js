@@ -6,6 +6,7 @@
     wikifx: {
       caseNo: 'CASE No. 001',
       name: 'WikiFX',
+      siteUrl: 'https://www.wikifx.com/',
       status: 'unrecommended',
       statusLabel: '不推荐',
       scores: [1, 3, 1, 2, 1, 1],
@@ -28,6 +29,7 @@
     wikibit: {
       caseNo: 'CASE No. 002',
       name: 'WikiBit',
+      siteUrl: 'https://www.wikibit.com/',
       status: 'critical',
       statusLabel: '需警惕',
       scores: [4, 3, 1, 5, 1, 2],
@@ -48,6 +50,7 @@
     fpa: {
       caseNo: 'CASE No. 003',
       name: 'Forex Peace Army',
+      siteUrl: 'https://www.forexpeacearmy.com/',
       status: 'warn',
       statusLabel: '部分存疑',
       scores: [7, 6, 6, 4, 6, 4],
@@ -69,6 +72,7 @@
     dailyforex: {
       caseNo: 'CASE No. 004',
       name: 'DailyForex',
+      siteUrl: 'https://www.dailyforex.com/',
       status: 'good',
       statusLabel: '良好',
       scores: [7, 7, 7, 5, 6, 7],
@@ -90,6 +94,7 @@
     tradersunion: {
       caseNo: 'CASE No. 005',
       name: 'Traders Union',
+      siteUrl: 'https://tradersunion.com/',
       status: 'warn',
       statusLabel: '部分存疑',
       scores: [5, 6, 6, 3, 6, 4],
@@ -110,6 +115,7 @@
     forexratings: {
       caseNo: 'CASE No. 006',
       name: 'Forex-Ratings.com',
+      siteUrl: 'https://www.forex-ratings.com/',
       status: 'critical',
       statusLabel: '需警惕',
       scores: [2, 4, 2, 5, 5, 5],
@@ -128,6 +134,7 @@
     fxtrustscore: {
       caseNo: 'CASE No. 007',
       name: 'FX Trust Score',
+      siteUrl: 'https://www.fxtrustscore.com/',
       status: 'good',
       statusLabel: '良好',
       scores: [8, 7, 7, 6, 6, 6],
@@ -147,6 +154,7 @@
     compareforexbrokers: {
       caseNo: 'CASE No. 008',
       name: 'CompareForexBrokers',
+      siteUrl: 'https://www.compareforexbrokers.com/',
       status: 'good',
       statusLabel: '良好',
       scores: [9, 7, 8, 6, 6, 7],
@@ -167,6 +175,7 @@
     forexbrokerscom: {
       caseNo: 'CASE No. 009',
       name: 'ForexBrokers.com',
+      siteUrl: 'https://www.forexbrokers.com/',
       status: 'good',
       statusLabel: '良好',
       scores: [8, 7, 6, 5, 6, 6],
@@ -187,6 +196,7 @@
     brokerchooser: {
       caseNo: 'CASE No. 010',
       name: 'BrokerChooser',
+      siteUrl: 'https://brokerchooser.com/',
       status: 'warn',
       statusLabel: '部分存疑',
       scores: [8, 7, 5, 4, 6, 4],
@@ -207,6 +217,7 @@
     brokersview: {
       caseNo: 'CASE No. 011',
       name: 'BrokersView',
+      siteUrl: 'https://www.brokersview.com/',
       status: 'critical',
       statusLabel: '需警惕',
       scores: [2, 3, 2, 2, 4, 2],
@@ -227,6 +238,7 @@
     forexbrokerrating: {
       caseNo: 'CASE No. 012',
       name: 'Forex-Broker-Rating.com',
+      siteUrl: 'https://www.forex-broker-rating.com/',
       status: 'critical',
       statusLabel: '需警惕',
       scores: [2, 3, 2, 4, 5, 5],
@@ -245,6 +257,7 @@
     daman: {
       caseNo: 'CASE No. 013',
       name: 'Daman（ضمان）',
+      siteUrl: 'https://daman.reviews/',
       status: 'critical',
       statusLabel: '需警惕',
       scores: [2, 3, 2, 5, 5, 5],
@@ -263,6 +276,7 @@
     seputarforex: {
       caseNo: 'CASE No. 014',
       name: 'Seputar Forex',
+      siteUrl: 'https://www.seputarforex.net/',
       status: 'warn',
       statusLabel: '部分存疑',
       scores: [4, 4, 4, 5, 6, 5],
@@ -281,6 +295,7 @@
     fxscouts: {
       caseNo: 'CASE No. 015',
       name: 'FX Scouts',
+      siteUrl: 'https://fxscouts.com/',
       status: 'good',
       statusLabel: '良好',
       scores: [7, 6, 6, 6, 6, 6],
