@@ -1404,6 +1404,7 @@
     select.addEventListener('change', () => renderDossier(select.value));
   })();
 
+  const initialHashSlug = (location.hash || '').slice(1);
   renderDossier('wikifx');
 
   // ---------- 比較表：全案件の軸別スコアを一覧表示 ----------
@@ -1584,11 +1585,8 @@
   });
 
   // URLのハッシュ（#wikifx など）があれば、その案件の個別ファイルを直接開く（Xシェアリンクからの直接遷移用）
-  (function () {
-    const initialSlug = (location.hash || '').slice(1);
-    if (initialSlug && SITE_DATA[initialSlug]) {
-      renderDossier(initialSlug);
-      switchTab('detail');
-    }
-  })();
+  if (initialHashSlug && SITE_DATA[initialHashSlug]) {
+    renderDossier(initialHashSlug);
+    switchTab('detail');
+  }
 </script>

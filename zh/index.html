@@ -1404,6 +1404,7 @@
     select.addEventListener('change', () => renderDossier(select.value));
   })();
 
+  const initialHashSlug = (location.hash || '').slice(1);
   renderDossier('wikifx');
 
   // ---------- 比較表：全案件の軸別スコアを一覧表示 ----------
@@ -1584,11 +1585,8 @@
   });
 
   // 若URL带有哈希（如 #wikifx），直接打开对应案件的详情页（用于X分享链接）
-  (function () {
-    const initialSlug = (location.hash || '').slice(1);
-    if (initialSlug && SITE_DATA[initialSlug]) {
-      renderDossier(initialSlug);
-      switchTab('detail');
-    }
-  })();
+  if (initialHashSlug && SITE_DATA[initialHashSlug]) {
+    renderDossier(initialHashSlug);
+    switchTab('detail');
+  }
 </script>

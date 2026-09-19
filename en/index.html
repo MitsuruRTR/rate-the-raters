@@ -1404,6 +1404,7 @@
     select.addEventListener('change', () => renderDossier(select.value));
   })();
 
+  const initialHashSlug = (location.hash || '').slice(1);
   renderDossier('wikifx');
 
   // ---------- Comparison table: list every case's per-axis scores ----------
@@ -1584,11 +1585,8 @@
   });
 
   // If the URL has a hash (e.g. #wikifx), open that case's dossier directly (for links shared via the X button)
-  (function () {
-    const initialSlug = (location.hash || '').slice(1);
-    if (initialSlug && SITE_DATA[initialSlug]) {
-      renderDossier(initialSlug);
-      switchTab('detail');
-    }
-  })();
+  if (initialHashSlug && SITE_DATA[initialHashSlug]) {
+    renderDossier(initialHashSlug);
+    switchTab('detail');
+  }
 </script>
