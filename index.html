@@ -249,6 +249,22 @@
   .chip.unrecommended::before { background: #FFFFFF; }
   .chip.neutral { color: var(--status-neutral); background: color-mix(in srgb, var(--status-neutral) 16%, transparent); border: 1.5px dashed var(--rule-strong); }
 
+  .lang-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--ink-muted);
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    padding: 2px 8px;
+    background: var(--paper-tab-inactive);
+    white-space: nowrap;
+  }
+
   /* ---------- Language selector ---------- */
   .lang-select {
     display: flex;
@@ -792,7 +808,10 @@
     <div class="directory" id="directory-grid">
 
       <article class="file-card" data-detail="wikifx" tabindex="0" role="button" aria-label="WikiFXの個別ファイルを見る">
-        <span class="case-no">CASE No. 001</span>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span class="case-no">CASE No. 001</span>
+          <span class="lang-badge">🇯🇵 日本語対応</span>
+        </div>
         <h3>WikiFX</h3>
         <p class="desc">調査完了。香港SFCの公式警告、DL Newsの調査報道など、複数の重大な懸念が確認された。</p>
         <div class="score-row">
@@ -802,7 +821,10 @@
       </article>
 
       <article class="file-card" data-detail="wikibit" tabindex="0" role="button" aria-label="WikiBitの個別ファイルを見る">
-        <span class="case-no">CASE No. 002</span>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span class="case-no">CASE No. 002</span>
+          <span class="lang-badge">🇯🇵 日本語対応</span>
+        </div>
         <h3>WikiBit</h3>
         <p class="desc">調査完了。香港拠点、WikiFXの姉妹サイト。DL Newsが同一の調査報道で懸念を指摘。</p>
         <div class="score-row">
@@ -842,7 +864,10 @@
       </article>
 
       <article class="file-card" data-detail="forexratings" tabindex="0" role="button" aria-label="Forex-Ratings.comの個別ファイルを見る">
-        <span class="case-no">CASE No. 006</span>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span class="case-no">CASE No. 006</span>
+          <span class="lang-badge">🇯🇵 日本語対応</span>
+        </div>
         <h3>Forex-Ratings.com</h3>
         <p class="desc">調査完了。運営会社名・所在地・収益モデルの開示がほぼ見当たらない。</p>
         <div class="score-row">
@@ -892,7 +917,10 @@
       </article>
 
       <article class="file-card" data-detail="brokersview" tabindex="0" role="button" aria-label="BrokersViewの個別ファイルを見る">
-        <span class="case-no">CASE No. 011</span>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span class="case-no">CASE No. 011</span>
+          <span class="lang-badge">🇯🇵 日本語対応</span>
+        </div>
         <h3>BrokersView</h3>
         <p class="desc">調査完了。運営元の所在地すら非開示。「金銭要求」型の告発が複数報告されている。</p>
         <div class="score-row">
@@ -932,7 +960,10 @@
       </article>
 
       <article class="file-card" data-detail="fxscouts" tabindex="0" role="button" aria-label="FX Scoutsの個別ファイルを見る">
-        <span class="case-no">CASE No. 015</span>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span class="case-no">CASE No. 015</span>
+          <span class="lang-badge">🇯🇵 日本語対応</span>
+        </div>
         <h3>FX Scouts</h3>
         <p class="desc">調査完了。スウェーデン法人として運営者情報を公開。信頼性の低い「詐欺告発」記事が1件あるのみ。</p>
         <div class="score-row">
@@ -957,6 +988,7 @@
     <div class="dossier-head">
       <div>
         <span class="case-no" id="dossier-case-no"></span>
+        <span class="lang-badge" id="dossier-jp-badge" hidden>🇯🇵 日本語対応</span>
         <h2 class="section-title" style="margin-top:6px;" id="dossier-name"></h2>
         <span class="chip critical" id="dossier-chip"></span>
         <a class="site-visit-link" id="dossier-site-link" href="#" target="_blank" rel="noopener nofollow">評価対象サイトを見る ↗</a>
@@ -1243,6 +1275,7 @@
     chip.textContent = d.statusLabel;
 
     document.getElementById('dossier-site-link').href = d.siteUrl;
+    document.getElementById('dossier-jp-badge').hidden = !d.jpSupport;
 
     const total = d.scores.reduce((a, b) => a + b, 0);
     document.getElementById('dossier-total').innerHTML = `${total}<span style="font-size:16px;font-weight:400;"> / 60</span>`;

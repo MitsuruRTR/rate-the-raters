@@ -249,6 +249,22 @@
   .chip.unrecommended::before { background: #FFFFFF; }
   .chip.neutral { color: var(--status-neutral); background: color-mix(in srgb, var(--status-neutral) 16%, transparent); border: 1.5px dashed var(--rule-strong); }
 
+  .lang-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--ink-muted);
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    padding: 2px 8px;
+    background: var(--paper-tab-inactive);
+    white-space: nowrap;
+  }
+
   /* ---------- Language selector ---------- */
   .lang-select {
     display: flex;
@@ -792,7 +808,10 @@
     <div class="directory" id="directory-grid">
 
       <article class="file-card" data-detail="wikifx" tabindex="0" role="button" aria-label="Lihat berkas individual WikiFX">
-        <span class="case-no">CASE No. 001</span>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span class="case-no">CASE No. 001</span>
+          <span class="lang-badge">🇯🇵 Dukungan Bahasa Jepang</span>
+        </div>
         <h3>WikiFX</h3>
         <p class="desc">Investigasi selesai. Ditemukan beberapa kekhawatiran serius, termasuk peringatan resmi dari SFC Hong Kong dan laporan investigasi DL News.</p>
         <div class="score-row">
@@ -802,7 +821,10 @@
       </article>
 
       <article class="file-card" data-detail="wikibit" tabindex="0" role="button" aria-label="Lihat berkas individual WikiBit">
-        <span class="case-no">CASE No. 002</span>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span class="case-no">CASE No. 002</span>
+          <span class="lang-badge">🇯🇵 Dukungan Bahasa Jepang</span>
+        </div>
         <h3>WikiBit</h3>
         <p class="desc">Investigasi selesai. Berbasis di Hong Kong, situs saudari dari WikiFX. DL News menunjukkan kekhawatiran dalam laporan investigasi yang sama.</p>
         <div class="score-row">
@@ -842,7 +864,10 @@
       </article>
 
       <article class="file-card" data-detail="forexratings" tabindex="0" role="button" aria-label="Lihat berkas individual Forex-Ratings.com">
-        <span class="case-no">CASE No. 006</span>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span class="case-no">CASE No. 006</span>
+          <span class="lang-badge">🇯🇵 Dukungan Bahasa Jepang</span>
+        </div>
         <h3>Forex-Ratings.com</h3>
         <p class="desc">Investigasi selesai. Hampir tidak ada pengungkapan nama perusahaan operator, lokasi, atau model pendapatan.</p>
         <div class="score-row">
@@ -892,7 +917,10 @@
       </article>
 
       <article class="file-card" data-detail="brokersview" tabindex="0" role="button" aria-label="Lihat berkas individual BrokersView">
-        <span class="case-no">CASE No. 011</span>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span class="case-no">CASE No. 011</span>
+          <span class="lang-badge">🇯🇵 Dukungan Bahasa Jepang</span>
+        </div>
         <h3>BrokersView</h3>
         <p class="desc">Investigasi selesai. Bahkan lokasi operator tidak diungkapkan. Beberapa tuduhan bertipe "permintaan uang" telah dilaporkan.</p>
         <div class="score-row">
@@ -932,7 +960,10 @@
       </article>
 
       <article class="file-card" data-detail="fxscouts" tabindex="0" role="button" aria-label="Lihat berkas individual FX Scouts">
-        <span class="case-no">CASE No. 015</span>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span class="case-no">CASE No. 015</span>
+          <span class="lang-badge">🇯🇵 Dukungan Bahasa Jepang</span>
+        </div>
         <h3>FX Scouts</h3>
         <p class="desc">Investigasi selesai. Informasi operator diungkapkan sebagai badan hukum Swedia. Hanya ada satu artikel "tuduhan penipuan" dengan kredibilitas rendah.</p>
         <div class="score-row">
@@ -957,6 +988,7 @@
     <div class="dossier-head">
       <div>
         <span class="case-no" id="dossier-case-no"></span>
+        <span class="lang-badge" id="dossier-jp-badge" hidden>🇯🇵 Dukungan Bahasa Jepang</span>
         <h2 class="section-title" style="margin-top:6px;" id="dossier-name"></h2>
         <span class="chip critical" id="dossier-chip"></span>
         <a class="site-visit-link" id="dossier-site-link" href="#" target="_blank" rel="noopener nofollow">Kunjungi situs yang diaudit ↗</a>
@@ -1243,6 +1275,7 @@
     chip.textContent = d.statusLabel;
 
     document.getElementById('dossier-site-link').href = d.siteUrl;
+    document.getElementById('dossier-jp-badge').hidden = !d.jpSupport;
 
     const total = d.scores.reduce((a, b) => a + b, 0);
     document.getElementById('dossier-total').innerHTML = `${total}<span style="font-size:16px;font-weight:400;"> / 60</span>`;
