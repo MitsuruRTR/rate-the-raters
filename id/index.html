@@ -1255,7 +1255,7 @@
   // AXES6, AXIS_FULL_NAMES, SITE_DATA, AUDIT_DATE は data.js から読み込み（HTML先頭の<script src="data.js">を参照）
   let currentSlug = null;
 
-  function renderDossier(slug) {
+  function renderDossier(slug, updateHash = true) {
     const d = SITE_DATA[slug];
     if (!d) return;
     currentSlug = slug;
@@ -1280,7 +1280,7 @@
     const total = d.scores.reduce((a, b) => a + b, 0);
     document.getElementById('dossier-total').innerHTML = `${total}<span style="font-size:16px;font-weight:400;"> / 60</span>`;
 
-    history.replaceState(null, '', '#' + slug);
+    if (updateHash) history.replaceState(null, '', '#' + slug);
     const shareText = `Skor kepercayaan ${d.name} adalah ${total}/60 (${d.statusLabel}). Selengkapnya:`;
     const shareUrl = location.origin + location.pathname + '#' + slug;
     document.getElementById('dossier-share-x').href =
@@ -1405,7 +1405,7 @@
   })();
 
   const initialHashSlug = (location.hash || '').slice(1);
-  renderDossier('wikifx');
+  renderDossier('wikifx', false);
 
   // ---------- 比較表：全案件の軸別スコアを一覧表示 ----------
   function renderCompareTable() {
